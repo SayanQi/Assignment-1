@@ -6,10 +6,9 @@ str = gets.chomp
 #get char to be find
 puts "Enter a string to remove"
 char = gets.chomp
-
-#check occurences
-if (str.count char) > 0
-  puts str.gsub(char,"")
-else
-  puts "No #{char} in #{str}"
-end
+#convert array from string
+strArr = str.split(" ")
+#delete the substr
+strArr.delete(char)
+#convert array to str with join
+puts strArr.join(" ")
