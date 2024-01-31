@@ -16,4 +16,4 @@ end
 
 obj = First.new("sayan")
 
-puts ( obj.name )
+puts "#{obj.name}"
