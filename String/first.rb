@@ -4,14 +4,14 @@ puts "Enter a string"
 str = gets.chomp
 
 # to uppercase the string
-upStr = str.upcase
+up_str = str.upcase
 
 # to lowercase the string
-dnStr = str.downcase
+dn_str = str.downcase
 
 # to capitalize the string
-capStr = str.capitalize
+cap_str = str.capitalize
 
-puts "#{str} uppercase -> #{upStr}"
-puts "#{str} downase -> #{dnStr}"
-puts "#{str} capitalized -> #{capStr}"
+puts "#{str} uppercase -> #{up_str}"
+puts "#{str} downase -> #{dn_str}"
+puts "#{str} capitalized -> #{cap_str}"

@@ -4,10 +4,10 @@ puts "Enter a string"
 str = gets.chomp
 
 # remove  white space with delete function
-dlStr = str.delete(" ")
+dl_str = str.delete(" ")
 
 # remove whitespaced with gsub
-gsStr = str.gsub(/\s+/,"")
+gs_str = str.gsub(/\s+/,"")
 
-puts "With delete #{dlStr}"
-puts "With gsub #{gsStr}"
+puts "With delete #{dl_str}"
+puts "With gsub #{gs_str}"

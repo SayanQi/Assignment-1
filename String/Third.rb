@@ -8,7 +8,7 @@ puts "Enter a string to find occurrences"
 char = gets.chomp
 
 # check occurences
-if (str.count char) > 0
+if(str.count char) > 0
   puts "#{char} occur in #{str} #{str.count char} times!"
 else
   puts "No #{char} in #{str}"

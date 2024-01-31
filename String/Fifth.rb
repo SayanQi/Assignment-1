@@ -1,15 +1,15 @@
 # Question : Write a Ruby program to replace a substring from a specified string.
 # define function for this pgrm
-def replaceString (str, targetStr, replaceStr)
+def replaceString(str, target_str, replace_str)
 
   # check any empty string occurred
-  if str.length == 0 || targetStr.length == 0 || replaceStr.length == 0
+  if str.length == 0 || target_str.length == 0 || replace_str.length == 0
     return "Null String"
 
   # check target string is included in str or not
-  elsif str.include? targetStr
+  elsif str.include? target_str
     #replace strings
-    return str.gsub(targetStr, replaceStr)
+    return str.gsub(target_str, replace_str)
 
   else
     return "Target String Not Found"
@@ -22,11 +22,11 @@ str = gets.chomp
 
 # get string to be replaced
 puts "Enter a string to be replaced"
-targetStr = gets.chomp
+target_str = gets.chomp
 
 # get string to replace
 puts "Enter a string to replace"
-replaceStr = gets.chomp
+replace_str = gets.chomp
 
 # check if target exist
-puts replaceString(str, targetStr, replaceStr)
+puts replaceString(str, target_str, replace_str)

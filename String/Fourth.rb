@@ -8,10 +8,10 @@ puts "Enter a string to remove"
 char = gets.chomp
 
 # convert array from string
-strArr = str.split(" ")
+str_arr = str.split(" ")
 
 # delete the substr
-strArr.delete(char)
+str_arr.delete(char)
 
 # convert array to str with join
-puts strArr.join(" ")
+puts str_arr.join(" ")
