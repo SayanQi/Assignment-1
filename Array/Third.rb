@@ -1,7 +1,7 @@
 # Q : Write a Ruby program to compute the sum of the first 2 elements of a given array of integers. If the array length is less than 2, just sum up the elements that exist, returning 0 if the length of the array is 0.
 
 # define a fn to take array input
-def arrayInput()
+def array_input()
   puts "Enter array size"
   size = gets.chomp.to_i #get array size from user
   arr = [] #initialize empty array
@@ -15,7 +15,7 @@ def arrayInput()
 end
 
 # define a fn to return sum of 1st 2 items
-def sumFirstTwo(arr)
+def sum_first_two(arr)
   sum = 0
 
   if arr.count == 0
@@ -32,5 +32,5 @@ def sumFirstTwo(arr)
 
 end
 
-arr = arrayInput()
-puts sumFirstTwo(arr)
+arr = array_input()
+puts sum_first_two(arr)

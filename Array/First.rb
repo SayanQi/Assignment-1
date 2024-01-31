@@ -2,7 +2,7 @@
 # Ex: InputArray = ['Ruby', 'Java', 'C', 'AWS'], Check Word = "Ruby", Result = true
 
 # define a fn to take array input
-def arrayInput()
+def array_input()
   puts "Enter array size"
   size = gets.chomp.to_i #get array size from user
 
@@ -19,7 +19,7 @@ def arrayInput()
 end
 
 # define a fn to find element with array and target element as parameter
-def isExist(arr,element)
+def is_exist(arr, element)
 
   # check element exist or not
   if arr.include? element
@@ -30,8 +30,8 @@ def isExist(arr,element)
 
 end
 
-arr = arrayInput() # call array input fn
+arr = array_input() # call array input fn
 puts "Enter element to find"
 
 element = gets.chomp
-puts isExist(arr,element) # call isExist fn to determine
+puts is_exist(arr, element) # call isExist fn to determine

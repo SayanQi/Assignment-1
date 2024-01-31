@@ -1,10 +1,10 @@
 # Q : Write a Ruby program to compute the sum of elements in a given array.
 
 # define a fn to take array input
-def arrayInput()
+def array_input()
   puts "Enter array size"
   size = gets.chomp.to_i #get array size from user
-  
+
   arr = [] #initialize empty array
 
   #started a for loop to take user input
@@ -18,7 +18,7 @@ def arrayInput()
 end
 
 # define a fn to count sum of array
-def arrSum(arr)
+def arr_sum(arr)
   sum = 0 # initialize sum with 0
 
   # started iteration and add the sum from elements of arrray
@@ -29,5 +29,5 @@ def arrSum(arr)
   return sum
 end
 
-arr = arrayInput()
-puts "sum of the array is #{arrSum(arr)}".capitalize!
+arr = array_input()
+puts "sum of the array is #{arr_sum(arr)}".capitalize!
