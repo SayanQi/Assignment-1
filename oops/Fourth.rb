@@ -3,12 +3,12 @@
 module ExModule
 
   # define a method
-  def printMethod
+  def print_method
     puts "PrintMethod of ExModule"
   end
 
   # define a second method
-  def secondMethod
+  def second_method
     puts "secondMethod of ExModule"
   end
 
@@ -22,5 +22,5 @@ class Fourth
 end
 
 obj = Fourth.new
-obj.printMethod
-obj.secondMethod
+obj.print_method
+obj.second_method

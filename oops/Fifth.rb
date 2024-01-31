@@ -7,7 +7,7 @@ module Mobile
   module SmartPhone
 
     # defined a fn to return android version
-    def androidVersion
+    def android_version
       Android
     end
 
@@ -22,4 +22,4 @@ class Fifth
 end
 
 obj = Fifth.new
-puts obj.androidVersion
+puts obj.android_version

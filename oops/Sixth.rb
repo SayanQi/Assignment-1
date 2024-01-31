@@ -1,30 +1,5 @@
 # Write a program to override the superclass method into sub-class.
 
-# class Car
-#   def initialize (speed, wheel)
-#     @speed = speed
-#     @wheel = wheel
-#   end
-
-#   def carSpeed
-#     puts @speed
-#   end
-# end
-
-# class Bmw < Car
-
-#   def carSpeed
-#     @speedCar = 10 * @speed
-#     puts @speedCar
-#   end
-
-# end
-
-# obj = Bmw.new (40 , 4)
-# obj.carSpeed
-
-# Ruby program of method overriding
-
 # define a class
 class Car
   # constructor method
@@ -32,7 +7,7 @@ class Car
     @w, @s = wheel, speed
   end
   # instance method
-  def getSpeed
+  def get_speed
     @w * @s
   end
 end
@@ -41,7 +16,7 @@ end
 class Bmw < Car
 
   # change existing getArea method as follows
-  def getSpeed
+  def get_speed
     @speed = @w * @s
     puts "BMW speed is : #@speed"
   end
@@ -51,4 +26,4 @@ end
   box = Bmw.new(4, 20)
 
   # print the area using overridden method.
-  box.getSpeed()
+  box.get_speed()

@@ -6,11 +6,11 @@ $global = 2024
 class Second
 
   # define a method to return global var
-  def accessGlobal()
+  def access_global()
     return $global
   end
 
 end
 
 obj = Second.new     # made an obj
-puts obj.accessGlobal
+puts obj.access_global

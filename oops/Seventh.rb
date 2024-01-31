@@ -12,7 +12,7 @@ end
 class Child < Parent
 
   # overriden method
-  def display (name, age)
+  def display(name, age)
     super name, age
     puts "Called by sub-class"
   end
