@@ -1,21 +1,24 @@
-#q : Write a program to check whether a given key exists in the hash collection or not.
-#define a fn to find existance of key
+# q : Write a program to check whether a given key exists in the hash collection or not.
+# define a fn to find existance of key
 def keyExist(hash, key)
-  if hash.empty? #check hash is empty or not
+  
+  if hash.empty? # check hash is empty or not
     return "hash is empty".capitalize!
-  elsif hash.key? key #check key contains or not
+  elsif hash.key? key # check key contains or not
     return "#{key} is a key of this Hash"
   else
     return "#{key} not found in this hash"
   end
+
 end
 
-#defined a fn for taking hash input
+# defined a fn for taking hash input
 def hashInput()
   puts "Enter Size of Hash"
   size = gets.chomp.to_i
   hash ={}
-  #iterate through size to take input
+
+  # iterate through size to take input
   for i in 0...size
     puts "Enter key #{i+1}"
     key = gets.chomp
@@ -23,10 +26,11 @@ def hashInput()
     value = gets.chomp
     hash[key] = value
   end
+
   return hash
 end
 
-hash = hashInput() #called hashinput fn
+hash = hashInput() # called hashinput fn
 puts "Enter the key to find"
 key = gets.chomp
-puts keyExist(hash,key) #called keyexist fn
+puts keyExist(hash,key) # called keyexist fn

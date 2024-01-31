@@ -1,10 +1,11 @@
-#Q : Write a program to search for an item in the hash collection.
-#defined a fn for taking hash input
+# Q : Write a program to search for an item in the hash collection.
+# defined a fn for taking hash input
 def hashInput()
   puts "Enter Size of Hash"
   size = gets.chomp.to_i
   hash ={}
-  #iterate through size to take input
+
+  # iterate through size to take input
   for i in 0...size
     puts "Enter key #{i+1}"
     key = gets.chomp
@@ -12,23 +13,28 @@ def hashInput()
     value = gets.chomp
     hash[key] = value
   end
+
   return hash
 end
 
-#defined a fn to find item
+# defined a fn to find item
 def findItem (hash,item)
-  if hash.empty? #check is empty or not
+
+  if hash.empty? # check is empty or not
     return "Hash is empty!"
-  elsif (hash.key? item) && (hash.value? item)  #check appeared in both or not
+  elsif (hash.key? item) && (hash.value? item)  # check appeared in both or not
     return "#{item} is one of the key and value"
-  elsif hash.key? item #check key or not
+  elsif hash.key? item # check key or not
     return "#{item} is one of the key"
-  elsif hash.value? item #check value or not
+  elsif hash.value? item # check value or not
     return "#{item} is one of the value"
   end
+
 end
 
-hash = hashInput() #called hashinput
+hash = hashInput() # called hashinput
+
 puts "Enter item to search"
 item = gets.chomp
-puts findItem(hash,item) #called finditem
+
+puts findItem(hash,item) # called finditem

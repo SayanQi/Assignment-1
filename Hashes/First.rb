@@ -1,7 +1,8 @@
-#q : Write a program to check whether a hash is empty or not.
-#initialize hash
+# q : Write a program to check whether a hash is empty or not.
+# initialize hash
 hash =  {}
-if hash.empty? #chck empty or not
+
+if hash.empty? # check empty or not
   puts "Empty Hash"
 else
   puts "Not empty"
