@@ -1,7 +1,7 @@
 # q : Write a program to check whether a given key exists in the hash collection or not.
 # define a fn to find existance of key
-def keyExist(hash, key)
-  
+def key_exist(hash, key)
+
   if hash.empty? # check hash is empty or not
     return "hash is empty".capitalize!
   elsif hash.key? key # check key contains or not
@@ -13,7 +13,7 @@ def keyExist(hash, key)
 end
 
 # defined a fn for taking hash input
-def hashInput()
+def hash_input()
   puts "Enter Size of Hash"
   size = gets.chomp.to_i
   hash ={}
@@ -30,7 +30,7 @@ def hashInput()
   return hash
 end
 
-hash = hashInput() # called hashinput fn
+hash = hash_input() # called hashinput fn
 puts "Enter the key to find"
 key = gets.chomp
-puts keyExist(hash,key) # called keyexist fn
+puts key_exist(hash,key) # called keyexist fn

@@ -1,6 +1,6 @@
 # Q : Write a program to search for an item in the hash collection.
 # defined a fn for taking hash input
-def hashInput()
+def hash_input()
   puts "Enter Size of Hash"
   size = gets.chomp.to_i
   hash ={}
@@ -18,7 +18,7 @@ def hashInput()
 end
 
 # defined a fn to find item
-def findItem (hash,item)
+def find_item(hash, item)
 
   if hash.empty? # check is empty or not
     return "Hash is empty!"
@@ -32,9 +32,9 @@ def findItem (hash,item)
 
 end
 
-hash = hashInput() # called hashinput
+hash = hash_input() # called hashinput
 
 puts "Enter item to search"
 item = gets.chomp
 
-puts findItem(hash,item) # called finditem
+puts findItem(hash, item) # called finditem

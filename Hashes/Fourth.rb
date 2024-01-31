@@ -1,6 +1,6 @@
 # Q : Write a program to print the inverted hash collection.
 # defined a fn for taking hash input
-def hashInput()
+def hash_input()
   puts "Enter Size of Hash"
   size = gets.chomp.to_i
   hash ={}
@@ -18,10 +18,10 @@ def hashInput()
 end
 
 # defined a fn to invert hash
-def revHash(hash)
+def rev_hash(hash)
  res = hash.invert # invert key value pair
  return res
 end
 
-hash = hashInput()
-puts revHash(hash)
+hash = hash_input()
+puts rev_hash(hash)
