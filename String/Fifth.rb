@@ -1,6 +1,6 @@
 # Question : Write a Ruby program to replace a substring from a specified string.
 # define function for this pgrm
-def replaceString(str, target_str, replace_str)
+def replace_string(str, target_str, replace_str)
 
   # check any empty string occurred
   if str.length == 0 || target_str.length == 0 || replace_str.length == 0
