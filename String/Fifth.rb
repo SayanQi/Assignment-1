@@ -2,11 +2,11 @@
 # define function for this pgrm
 def replaceString (str, targetStr, replaceStr)
 
-  #check any empty string occurred
+  # check any empty string occurred
   if str.length == 0 || targetStr.length == 0 || replaceStr.length == 0
     return "Null String"
 
-  #check target string is included in str or not
+  # check target string is included in str or not
   elsif str.include? targetStr
     #replace strings
     return str.gsub(targetStr, replaceStr)
