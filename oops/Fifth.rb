@@ -1,14 +1,20 @@
 # Write a program to create a nested module.
 
 module Mobile
-  Android = 11
+  @android = 11
 
+  @android.freeze
   # create a nested module
   module SmartPhone
 
     # defined a fn to return android version
     def android_version
-      Android
+      @android
+    end
+
+    # define a setter
+    def set_android_version(an)
+      @android = an
     end
 
   end
@@ -22,4 +28,6 @@ class Fifth
 end
 
 obj = Fifth.new
+obj.freeze
+obj.set_android_version(1.23)
 puts obj.android_version

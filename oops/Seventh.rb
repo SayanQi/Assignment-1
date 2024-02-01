@@ -2,8 +2,13 @@
 
 class Parent
 
-  def display (name="tat", age=33)
-    puts "Name is #{name}, Age is #{age}"
+  attr_accessor :name
+  attr_accessor :age
+
+  # constructore created
+  def initialize name, age
+    @name = name
+    @age = age
   end
 
 end
@@ -11,13 +16,12 @@ end
 # inherited by parent
 class Child < Parent
 
-  # overriden method
-  def display(name, age)
+  # constructor created
+  def initialize(name, age)
     super name, age
-    puts "Called by sub-class"
   end
 
 end
 
-obj = Child.new
-obj.display "Sayan", 22
+obj = Child.new "Sayan", 22
+puts "#{obj.name}"
