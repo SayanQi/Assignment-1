@@ -2,9 +2,11 @@ require 'date'  # added 'date' module
 
 # created a class Tracker
 class Tracker
+  # attr_accessor used for task arr
+  attr_accessor :task_arr
   # constructor
   def initialize
-    # @task_arr = [
+    # @@task_arr = [
     #   { id: 1, name: "task1", time_logs: [[DateTime.parse("2023-01-01 9:30:00"), DateTime.parse("2023-01-01 10:30:00")],
     #                                       [DateTime.parse("2023-01-01 12:00:00"), DateTime.parse("2023-01-01 13:00:00")]] },
     #   { id: 2, name: "task2", time_logs: [[DateTime.parse("2023-01-01 10:30:00"), DateTime.parse("2023-01-01 11:30:00")],
@@ -32,7 +34,7 @@ class Tracker
       puts "Enter task name"
       task_name = gets.chomp
       # Exception handled if wrong format
-      raise "Invalid input format. Please use a name" if task_name.to_i == 0
+      # raise "Invalid input format. Please use a name" if task_name.to_i == 0
 
       # started a nested loop to get time log array input
       loop do
@@ -45,13 +47,13 @@ class Tracker
         puts "Enter start date time in YYYY/MM/DD HH:mm:ss"
         start_time = DateTime.parse(gets.chomp)
         # Exception handled if wrong format
-        raise "Invalid input format. Please use 'YYYY/MM/DD HH:mm:ss'" if start_time.length < 6
+        # raise "Invalid input format. Please use 'YYYY/MM/DD HH:mm:ss'" if start_time.count < 6
 
         # take input of end time
         puts "Enter end date time in YYYY/MM/DD HH:mm:ss"
         end_time = DateTime.parse(gets.chomp)
         # Exception handled if wrong format
-        raise "Invalid input format. Please use 'YYYY/MM/DD HH:mm:ss'" if end_time.length < 6
+        # raise "Invalid input format. Please use 'YYYY/MM/DD HH:mm:ss'" if end_time.count < 6
 
         # Append an array contains start_time & end_time
         time_logs << [start_time, end_time]
@@ -67,7 +69,7 @@ class Tracker
   def add_task(task_name, time_logs_arr)
     # created a hash with name, time_logs
     task = {name: task_name, time_logs: time_logs_arr}
-    # append the hash to @task_arr
+    # append the hash to @@task_arr
     @task_arr << task
   end
 
@@ -76,7 +78,7 @@ class Tracker
     # call the user_input method to take input
     user_input()
 
-    # create an array named categories with @task_arr names
+    # create an array named categories with @@task_arr names
     categories = @task_arr.map{|task| task[:name]}
 
     # useful variable total_min
