@@ -26,7 +26,7 @@ class Tracker
     time_logs = []
     # started a loop to get input
     loop do
-      puts "Enter task details, or type 'exit' to finish:"
+      puts "Press 'Enter' to input task details, or type 'exit' to finish:"
       task_input = gets.chomp.downcase
       # break the loop if gets 'exit'
       break if task_input == 'exit'
