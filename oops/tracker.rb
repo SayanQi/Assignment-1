@@ -4,9 +4,10 @@ require 'date'  # added 'date' module
 class Tracker
   # attr_accessor used for task arr
   attr_accessor :task_arr
-  # constructor
+
+  # constructoruser_input
   def initialize
-    # @@task_arr = [
+    # task_arr = [
     #   { id: 1, name: "task1", time_logs: [[DateTime.parse("2023-01-01 9:30:00"), DateTime.parse("2023-01-01 10:30:00")],
     #                                       [DateTime.parse("2023-01-01 12:00:00"), DateTime.parse("2023-01-01 13:00:00")]] },
     #   { id: 2, name: "task2", time_logs: [[DateTime.parse("2023-01-01 10:30:00"), DateTime.parse("2023-01-01 11:30:00")],
@@ -69,8 +70,8 @@ class Tracker
   def add_task(task_name, time_logs_arr)
     # created a hash with name, time_logs
     task = {name: task_name, time_logs: time_logs_arr}
-    # append the hash to @@task_arr
-    @task_arr << task
+    # append the hash to task_arr
+    task_arr << task
   end
 
   # defined a method to do calculations
@@ -78,8 +79,8 @@ class Tracker
     # call the user_input method to take input
     user_input()
 
-    # create an array named categories with @@task_arr names
-    categories = @task_arr.map{|task| task[:name]}
+    # create an array named categories with task_arr names
+    categories = task_arr.map{|task| task[:name]}
 
     # useful variable total_min
     total_min = 24*60
@@ -88,7 +89,7 @@ class Tracker
     total_time = Array.new(categories.length, 0)
 
     # started each_with_index loop access all index and calculate
-    @task_arr.each_with_index do |task,index|
+    task_arr.each_with_index do |task,index|
       # inner loop to access :time_logs
       task[:time_logs].each do |log|
         # destructure array of log
