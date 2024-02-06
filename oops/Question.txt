@@ -1,0 +1,8 @@
+rite a program to create a class with data members and initialize using constructor. Add another instance method that will return the member data.
+Write a program to access a global variable from a method of the class.
+Write a program to create a module with variables.
+Write a program to include a module inside the class.
+Write a program to create a nested module.
+Write a program to override the superclass method into sub-class.
+Write a program to call a superclass constructor from sub-class using the super() method.
+Write a program to initialize instance variables using the constructor.
