@@ -1,0 +1,16 @@
+<div class="col-lg-4 col-md-4 col-sm-6 mt-3" >
+<%= turbo_frame_tag task do %>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><%= task.name %></h5>
+                <% if task.completed %>
+                    <h6 class="card-subtitle mb-2 text-muted">Completed</h6> <!-- Updated class to use Rails Bootstrap helpers -->
+                <% end %>
+                <p class="card-text"><%= task.description %></p>
+                <%= link_to "Edit", edit_task_path(task), class: "btn btn-secondary", data: { turbo_frame: dom_id(task)} %> 
+                <%= button_to "Delete", method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: "btn btn-danger" %> 
+            </div>
+        </div>
+        <% end %>
+    </div>
+  

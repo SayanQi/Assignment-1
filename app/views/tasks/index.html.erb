@@ -1,0 +1,16 @@
+<div class="container">
+    <h1 class="text-center">Tasks</h1>
+    <div>
+        <%= link_to "Add Task", new_task_path, data: {turbo_frame: "new_task"} %>
+    </div>
+    <div>
+        <%= turbo_frame_tag "new_task", target: "_top"  %>
+    </div>
+    <div id="tasks">
+        <div class="row">
+       
+                <%= render @tasks %>
+         
+        </div>
+    </div>
+</div>
