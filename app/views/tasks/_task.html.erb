@@ -1,16 +1,23 @@
 <div class="col-lg-4 col-md-4 col-sm-6 mt-3" >
-<%= turbo_frame_tag task do %>
-        <div class="card" style="width: 18rem;">
+    <%= turbo_frame_tag task do %>
+        <div class="card" style="width: 18rem; height:250px;">
             <div class="card-body">
                 <h5 class="card-title"><%= task.name %></h5>
-                <% if task.completed %>
-                    <h6 class="card-subtitle mb-2 text-muted">Completed</h6> <!-- Updated class to use Rails Bootstrap helpers -->
-                <% end %>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        <% if task.completed %>
+                            <p style="color: green;">Completed</p> 
+                        <% else %>
+                            <p style="color: red;"> Pending </p>
+                        <% end %>
+                    </h6> <!-- Updated class to use Rails Bootstrap helpers -->
                 <p class="card-text"><%= task.description %></p>
-                <%= link_to "Edit", edit_task_path(task), class: "btn btn-secondary", data: { turbo_frame: dom_id(task)} %> 
-                <%= button_to "Delete", method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: "btn btn-danger" %> 
+                <p class="card-text">Due Date : <%= task.pending_date.strftime("%A, %B %d, %Y %I:%M %p") %></p>
+                <div class="d-flex">
+                    <%= link_to "Edit", edit_task_path(task), class: date_passed?(task.pending_date) ? "disabled btn btn-secondary" : "btn btn-secondary", data: { turbo_frame: dom_id(task)} %> 
+                    <%= button_to "Delete",task, method: :delete, class: "btn btn-danger mx-1 md", form: { data: { turbo_confirm: "Are you sure?" } }%> 
+                </div>
             </div>
         </div>
-        <% end %>
-    </div>
-  
+    <% end %>
+</div>
+<!-- strftime("%A, %B %d, %Y %I:%M %p") -->
