@@ -1,33 +1,42 @@
 <!-- <div class="col-lg-4 col-md-4 col-sm-6 mt-3" > -->
 <%= turbo_frame_tag task, class: "col-lg-4 col-md-4 col-sm-6 mt-3" do %>
-        <div class="card" style="width: 20rem; height:100%; padding-bottom:15px;">
-            <div class="card-body">
-                <h5 class="card-title"><%= task.name %></h5>
-                    <h6 class="card-subtitle mb-2 text-muted">
-                        <!-- check if task is done  -->
-                        <% if task.completed %>
-                            <p style="color: green;">Completed</p> 
-                        <% else %>
-                            <p style="color: red;"> Pending </p>
-                        <% end %>
-                    </h6>
-                    <h6 class="card-subtitle mb-2 text-muted">
-                        <!-- check if deadline is near or passed  -->
-                        <% if date_passed?(task.pending_date) %>
-                            <h4 style="color: red;"> Overdue!!! </h4>
-                        <% elsif (task.pending_date - 1) <= Date.current %>   
-                            <h5 style="color: rgb(255, 208, 0)"> Deadline is near </h5> 
-                        <% end %>    
-                    </h6>
-                <p class="card-text"><%= task.description %></p>
-                <!-- printing date in day, month date, year, hour:min -->
-                <p class="card-text"><strong>Due Date :</strong> <%= task.pending_date.strftime("%A, %B %d, %Y") %></p>
-                <p class="card-text"><strong>Due Time :</strong> <%= task.pending_date.strftime("%I:%M %p") %></p>
-                <div class="d-flex">
-                    <%= link_to "Edit", edit_task_path(task), class: task.completed ? "disabled btn btn-secondary" : "btn btn-secondary", data: { turbo_frame: dom_id(task)} %> 
-                    <%= button_to "Delete",task, method: :delete, class: "btn btn-danger mx-1 md", form: { data: { turbo_confirm: "Are you sure?" } }%> 
-                </div>
-            </div>
-        </div>
-        <% end %>
-    <!-- </div> -->
+	<div class="card" style="width: 20rem; height:100%; padding-bottom:15px;">
+		<div class="card-body">
+			<h5 class="card-title">
+				<%= task.name %>
+			</h5>
+			<h6 class="card-subtitle mb-2 text-muted">
+				<!-- check if task is done  -->
+				<% if task.completed %>
+					<p style="color: green;">Completed</p>
+					<% else %>
+						<p style="color: red;"> Pending </p>
+						<% end %>
+			</h6>
+			<h6 class="card-subtitle mb-2 text-muted">
+				<!-- check if deadline is near or passed  -->
+				<% if date_passed?(task.pending_date) %>
+					<h4 style="color: red;"> Overdue!!! </h4>
+					<% elsif (task.pending_date - 1) <=Date.current %>
+						<h5 style="color: rgb(255, 208, 0)"> Deadline is near </h5>
+						<% end %>
+			</h6>
+			<p class="card-text">
+				<%= task.description %>
+			</p>
+			<!-- printing date in day, month date, year, hour:min -->
+			<p class="card-text"><strong>Due Date :</strong>
+				<%= task.pending_date.strftime("%A, %B %d, %Y") %>
+			</p>
+			<p class="card-text"><strong>Due Time :</strong>
+				<%= task.pending_date.strftime("%I:%M %p") %>
+			</p>
+			<div class="d-flex">
+				<%= link_to "Edit" , edit_task_path(task), class: task.completed ? "disabled btn btn-secondary"
+					: "btn btn-secondary" , data: { turbo_frame: dom_id(task)} %>
+					<%= button_to "Delete" ,task, method: :delete, class: "btn btn-danger mx-1 md" , form: { data: {
+						turbo_confirm: "Are you sure?" } }%>
+			</div>
+		</div>
+	</div>
+	<% end %>
