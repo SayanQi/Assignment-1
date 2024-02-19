@@ -1,4 +1,8 @@
 class TasksController < ApplicationController
+
+  # skip_before_action :find_task, only: %i[new, create, index]
+  before_action :find_task, except: [:new, :create, :index]
+
   def new
     @task = Task.new
   end
@@ -6,10 +10,15 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to tasks_path
+      flash[:success] = "Successfully Created"
+      redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+      flash[:danger] = "Failed to update user: #{@task.errors.messages }"
+      redirect_to root_path, status: :unprocessable_entity
     end
+
+    rescue StandardError => e
+      flash[:danger] = "An error occurred: #{e.message.to_s}"
 
   end
 
@@ -18,35 +27,38 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      flash[:success] = "Successfully Updated"
+      redirect_to root_path
+    else
+      flash[:danger] = "Failed to update user: #{@task.errors.messages }"
+      render :edit, status: :unprocessable_entity
+    end
 
-   if @task.update(task_params)
-    redirect_to tasks_path
-   else
-    render :edit, status: :unprocessable_entity
-   end
+    rescue StandardError => e
+      flash[:danger] = "An error occurred: #{e.message.to_s}"
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
 
   def show
   end
 
   def destroy
-    if @task.destroy(params[:id])
-      redirect_to tasks_path
-    end
+    @task.destroy
+    render turbo_stream: turbo_stream.remove("task_#{params[:id]}")
+    flash[:success] = "Successfully Deleted"
   end
 
   private
 
   def task_params
+    params.require(:task).permit(:name, :description, :pending_date, :completed, :active)
+  end
 
-
-
-    params.require(:task).permit(:name, :description, :pending_date, :completed,:active)
+  def find_task
+    @task = Task.find(params[:id])
   end
 
 end
