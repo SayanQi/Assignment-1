@@ -9,12 +9,16 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    # binding.pry
     if @task.save
+      flash[:success] = "Successfully Created"
       redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+      flash[:danger] = "Failed to update user: #{@task.errors.messages }"
+      redirect_to root_path, status: :unprocessable_entity
     end
+
+    rescue StandardError => e
+      flash[:danger] = "An error occurred: #{e.message.to_s}"
 
   end
 
@@ -23,26 +27,28 @@ class TasksController < ApplicationController
   end
 
   def update
-    # @task = Task.find(params[:id])
+    if @task.update(task_params)
+      flash[:success] = "Successfully Updated"
+      redirect_to root_path
+    else
+      flash[:danger] = "Failed to update user: #{@task.errors.messages }"
+      render :edit, status: :unprocessable_entity
+    end
 
-   if @task.update(task_params)
-    redirect_to root_path
-   else
-    render :edit, status: :unprocessable_entity
-   end
+    rescue StandardError => e
+      flash[:danger] = "An error occurred: #{e.message.to_s}"
   end
 
   def edit
-    # @task = Task.find(params[:id])
   end
 
   def show
   end
 
   def destroy
-    # before action should be added
-    Task.destroy(params[:id])
+    @task.destroy
     render turbo_stream: turbo_stream.remove("task_#{params[:id]}")
+    flash[:success] = "Successfully Deleted"
   end
 
   private
