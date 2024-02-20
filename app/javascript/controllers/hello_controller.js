@@ -1,7 +1,13 @@
-import { Controller } from "@hotwired/stimulus"
+// reload_turbo_frame_controller.js
+import { Controller } from "stimulus";
+import { Turbo } from "@hotwired/turbo-rails";
 
 export default class extends Controller {
-  connect() {
-    this.element.textContent = "Hello World!"
+  // Action to reload the Turbo Frame
+  reload() {
+    console.log("helo cont");
+    console.log(this.element);
+    const turboFrame = this.element;
+    Turbo.visit(turboFrame.src, { action: "replace" }); // Reload the Turbo Frame
   }
 }
