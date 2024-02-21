@@ -34,8 +34,8 @@
 				<%= time_calculation(task) %>
 			</p>
 			<div class="d-flex">
-				<%= link_to "Edit" , edit_task_path(task), class: task.completed ? "disabled btn btn-secondary"	: "btn btn-secondary" , data: { turbo_frame: dom_id(task)} %>
-				<%= button_to "Delete" ,task, method: :delete, class: "btn btn-danger mx-1 md" , form: { data: { turbo_confirm: "Are you sure?" } }%>
+				<%= link_to "Edit" , edit_task_path(task), class: task.completed ? "disabled btn btn-secondary"	: "btn btn-secondary" , data: { turbo_frame: dom_id(task), action: "click->task#disableConnect" }  %>
+				<%= button_to "Delete" ,task, method: :delete, class: "btn btn-danger mx-1 md" , form: { data: { turbo_confirm: "Are you sure?" } } %>
 			</div>
 		</div>
 	</div>

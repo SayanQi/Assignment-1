@@ -13,6 +13,7 @@ module TasksHelper
     current_datetime = DateTime.now
     # Calculate the time difference
     time_difference = task.pending_date - current_datetime
+    
     days = (time_difference / 1.day).to_i
     hours = ((time_difference % 1.day) / 1.hour).to_i
     minutes = ((time_difference % 1.hour) / 1.minute).to_i
@@ -23,5 +24,6 @@ module TasksHelper
     else
       "Time Over !"
     end
+
   end
 end
