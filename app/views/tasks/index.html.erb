@@ -14,9 +14,11 @@
 	<div>
 		<%= turbo_frame_tag "new_task" , target: "_top" %>
 	</div>
-	<div id="tasks" class="py-4">
-		<div class="row">
-			<%= render @tasks %>
-		</div>
+	<div id="tasks" class="py-4">		
+		<%= turbo_frame_tag 'all_tasks',data: { controller: 'task', task_src_value: request.path} do %>
+			<div class="row">
+					<%= render @tasks %>
+			</div>
+		<% end %>	
 	</div>
 </div>
